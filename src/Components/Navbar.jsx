@@ -11,7 +11,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import CloudIcon from '@material-ui/icons/Cloud';
 import Button from '@material-ui/core/Button';
-import { useForceUpdate } from "./TodaysCard";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -67,26 +67,10 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   }));
- export  let Cityname="Akola";
- export let refresh=false;
- const clickFuntion=()=>{
-  refresh=true;
- }
-
 const Navbar =()=>{
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     
-
-
-
-   
-
-    useEffect(()=>{
-    });
-    
-    
-
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     };
@@ -94,12 +78,7 @@ const Navbar =()=>{
     const handleClose = () => {
       setAnchorEl(null);
     };
-    const inputEvent=(event)=>{
-     const city=event.target.value;
-       Cityname=city;
-    }
-    //console.log(city);
-     console.log(Cityname);  
+    
 return(
 <>
 <div className={classes.root}>
@@ -127,21 +106,6 @@ return(
           <Typography className={classes.title} variant="h6" noWrap>
           <CloudIcon style={{fontSize:"2rem"}}/>  Weather Forcasting App 
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-              onChange={inputEvent}
-            />
-          </div>
-          <Button variant="contained" style={{margin:"1rem"}} onClick={clickFuntion}>Search</Button>
         </Toolbar>
       </AppBar>
     </div>
